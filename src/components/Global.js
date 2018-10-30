@@ -30,14 +30,14 @@ class Global extends Component{
             <FormControl
             type="text"
             placeholder="search for a book"
-            onChange={(e) => this.setState({query:e.target.value})}
+            onChange={(e) => {this.setState({query:e.target.value});}}
             onKeyPress={event => {
               if(event.key==='Enter') {this.search()};
             }}/>
             <button onClick={() => this.search()}>Search</button>
             </InputGroup>
         </FormGroup>
-        <Gallery items={this.state.items}></Gallery>
+        <Gallery items={this.state.items!==undefined ? this.state.items:[]}></Gallery>
       </div>
     )
   }
